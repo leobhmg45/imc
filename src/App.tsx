@@ -1,7 +1,18 @@
 import styles from './App.module.css'
 import logo from './assets/powered.png'
+import { useState } from 'react'
 
 const App = () => {
+  const [altura, setAltura] = useState<number>(0)
+  const [peso, setPeso] = useState<number>(0)
+  const handleCalcular = () => {
+    if (altura && peso){
+
+    } else {
+      alert('Digite os valores')
+    }
+  }
+
   return (
     <div className={styles.main}>
       <header className={styles.headerContainer}>
@@ -9,7 +20,10 @@ const App = () => {
       </header>
       <div className={styles.container}>
         <div className={styles.leftSide}>
-          left side
+          <h1>Calculo do IMC</h1>
+          <input type="number" placeholder='Sua altura - Ex: 1.80' value={altura > 0 ? altura : ''} onChange={e => setAltura(parseFloat(e.target.value))} />
+          <input type="number" placeholder='Seu peso - Ex: 80' value={peso > 0 ? peso : ''} onChange={e => setPeso(parseFloat(e.target.value))} />
+          <button onClick={handleCalcular}>Calcular</button>
         </div>
         <div className={styles.rightSide}>
           right side
