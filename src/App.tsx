@@ -1,18 +1,30 @@
 import styles from './App.module.css'
 import logo from './assets/powered.png'
+import voltar from './assets/leftarrow.png'
+
 import { useState } from 'react'
-import { levels, calcularImc } from './helpers/imc'
-import {GridItem} from './components/GridItem'
+import { levels, calcularImc, level } from './helpers/imc'
+import { GridItem } from './components/GridItem'
 
 const App = () => {
   const [altura, setAltura] = useState<number>(0)
   const [peso, setPeso] = useState<number>(0)
-  const handleCalcular = () => {
-    if (altura && peso){
+  const [exibir, setExibir] = useState<level | null>(null)
 
+  const handleCalcular = () => {
+    if (altura && peso) {
+      setExibir(calcularImc(altura, peso))
+
+      // console.log(exibir?.imc)
+      // console.log(altura)
+      // console.log(peso)
     } else {
-      alert('Digite os valores')
+      setExibir(null)
     }
+  }
+
+  const handleVoltar = () => {
+    setExibir(null)
   }
 
   return (
@@ -28,14 +40,23 @@ const App = () => {
           <button onClick={handleCalcular}>Calcular</button>
         </div>
         <div className={styles.rightSide}>
-          <div className={styles.grid}>
-            {levels.map((value, index) =>(
-              <GridItem key={index} item={value} />
-            ))
-            }
-          </div>
+          {!exibir &&
+            <div className={styles.grid}>
+              {levels.map((value, index) => (
+                <GridItem key={index} item={value} exibirImc={false} />
+              ))
+              }
+            </div>}
+          {exibir &&
+            <div className={styles.exibir}>
+              <div className={styles.voltar}>
+                <img src={voltar} alt="Voltar" width={25} onClick={handleVoltar} />
+              </div>
+              <GridItem item={exibir} exibirImc={true}/>
+            </div>
+          }
         </div>
-        
+
       </div>
     </div >
   )

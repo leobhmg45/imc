@@ -38,6 +38,7 @@ body {
     margin-top: 40px;
     font-size: medium;
     font-weight: bold;
+    /* outline: 2px; */
 }
 
 .container .leftSide button:hover {
@@ -55,4 +56,21 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+}
+.container .rightSide .exibir {
+    flex: 1;
+    display: flex;
+}
+.container .rightSide .voltar {
+    position: absolute;
+    background-color: #227C90;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: -35px;
+    margin-top: 85px;
 }

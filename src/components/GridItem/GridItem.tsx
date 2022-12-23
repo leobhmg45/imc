@@ -4,10 +4,11 @@ import up from '../../assets/up.png'
 import down from '../../assets/down.png'
 
 type Props = {
-    item: level
+    item: level,
+    exibirImc: boolean
 }
 
-export const GridItem = ({item}:Props) => {
+export const GridItem = ({item, exibirImc}:Props) => {
     return(
         <div className={styles.main} style={{backgroundColor: item.cor}}>
             <div className={styles.iconMain}>
@@ -15,7 +16,11 @@ export const GridItem = ({item}:Props) => {
                 {item.icone === 'down' && <img src={down} alt='Down' width='30'/>}
             </div>
             <div className={styles.titleMain}>{item.titulo}</div>
-            {/* <div className={styles.info}></div> */}
+            {
+                exibirImc &&
+                <div className={styles.titleMain}>{item.imc}</div>
+            }
+            
         </div>
     )
 }
