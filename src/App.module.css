@@ -36,6 +36,8 @@ body {
     border-radius: 15px;
     cursor: pointer;
     margin-top: 40px;
+    font-size: medium;
+    font-weight: bold;
 }
 
 .container .leftSide button:hover {
