@@ -1,0 +1,26 @@
+.main {
+    flex: 1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    color: #FFF;
+}
+
+.iconMain {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, .1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titleMain {
+    font-size: 23;
+    font-weight: bold;
+    margin-top: 5px;
+}
